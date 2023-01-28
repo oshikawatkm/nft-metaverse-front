@@ -78,11 +78,11 @@ const NftModels = ({ getNftModelsRequest, nftModel: { nftModels } }) => {
 
 NftModels.propTypes = {
   getNftModelsRequest: PropTypes.func.isRequired,
-  nftModels: PropTypes.object.isRequired
+  nftModel: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  nftModels: state.nftModels
+  nftModel: state.nftModel
 })
 
 export default connect(mapStateToProps, { getNftModelsRequest })(NftModels);

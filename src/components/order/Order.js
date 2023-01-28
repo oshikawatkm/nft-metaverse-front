@@ -2,13 +2,16 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getOrderRequest } from '../../actions/orders';
+import Spinner from '../layout/Spinner';
 
-const Order = ({ getOrderRequest, order: { order } })  => {
+const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
   useEffect(() => {
-    getOrderRequest();
-  }, [getOrderRequest])
+    getOrderRequest(match.params.id);
+  }, [getOrderRequest, match.params.id])
 
-  return (
+  return loading || order === null ? (
+    <Spinner />
+  ) : (
     <Fragment>
       <section className="content-header">
         <div className="content-wrapper">

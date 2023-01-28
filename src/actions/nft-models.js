@@ -11,7 +11,7 @@ import {
 
 export const postNftModelRequest = formData => async dispatch => {
   try {
-    const res = await api.post('/nft-model', formData);
+    const res = await api.post('/nft-models', formData);
 
     dispatch({
       type: POST_NFT_MODEL_REQUEST,
@@ -29,7 +29,7 @@ export const postNftModelRequest = formData => async dispatch => {
 export const getNftModelsRequest = () => async dispatch => {
   try {
     const res = await api.get('/nft-models');
-
+    console.log(res)
     dispatch({
       type: GET_NFT_MODELS_REQUEST,
       payload: res.data
@@ -44,7 +44,7 @@ export const getNftModelsRequest = () => async dispatch => {
 
 export const getNftModelRequest = id => async dispatch => {
   try {
-    const res = await api.get(`/nft-model/${id}`);
+    const res = await api.get(`/nft-models/${id}`);
     
     dispatch({
       type: GET_NFT_MODEL_REQUEST,

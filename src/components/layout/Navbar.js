@@ -18,7 +18,7 @@ const Navbar = () => {
             <Link to="/nft_models" className="nav-link text-secondary"><i className="fas fa-home" />NFT 3D Model</Link>
           </li>
           <li className="nav-item active">
-            <Link to="/nft_models/new" className="nav-link text-secondary"><i className="fas fa-cog" />Upload 3D Model</Link>
+            <Link to="/nft_model/new" className="nav-link text-secondary"><i className="fas fa-cog" />Upload 3D Model</Link>
           </li>
           <li className="nav-item active">
             <Link to="/orders" className="nav-link text-secondary"><i className="fas fa-money-bill-wave" />Orders</Link>

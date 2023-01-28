@@ -51,8 +51,8 @@ const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match }
                   <div className="container">
                     <div className="row">
                       <div className="col-8">
-                        <p className="mb-0">タイトル</p>
-                        <p className="h3">{nftModel.title}</p>
+                        <p className="mb-0">Name</p>
+                        <p className="h3">{nftModel.name}</p>
                       </div>
         
                     </div>

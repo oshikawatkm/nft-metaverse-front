@@ -78,11 +78,11 @@ const Orders = ({ getOrdersRequest, order: {orders}  })  => {
 
 Orders.propTypes = {
   getOrdersRequest: PropTypes.func.isRequired,
-  vc: PropTypes.object.isRequired
+  order: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  vc: state.vc
+  order: state.order
 })
 
 export default connect(mapStateToProps, { getOrdersRequest })(Orders);

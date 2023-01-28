@@ -37,7 +37,7 @@ class NewNftModel extends Component {
       name: this.state.name,
       copyright: this.state.copyright,
       format: this.state.format,
-      description: this.state.format
+      description: this.state.description
     }
 
     await this.props.postNftModelRequest(formData);

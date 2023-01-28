@@ -46,9 +46,9 @@ export const getOrdersRequest = () => async dispatch => {
   }
 }
 
-export const getOrderRequest = () => async dispatch => {
+export const getOrderRequest = id => async dispatch => {
   try {
-    const res = await api.get('/orders/:id');
+    const res = await api.get(`/orders/${id}`);
 
     dispatch({
       type: GET_ORDER_REQUEST,

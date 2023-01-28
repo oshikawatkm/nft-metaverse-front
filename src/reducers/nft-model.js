@@ -9,8 +9,8 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  nft_models: [],
-  nft_model: null,
+  nftModels: [],
+  nftModel: null,
   loading: true,
   error: {}
 };
@@ -28,13 +28,13 @@ function nftModelReducer(state = initialState, action) {
     case GET_NFT_MODEL_REQUEST:
       return {
         ...state,
-        nft_model: payload,
+        nftModel: payload,
         loading: false
       };
     case GET_NFT_MODELS_REQUEST:
       return {
         ...state,
-        nft_models: payload,
+        nftModels: payload,
         loading: false
       };
     case GET_NFT_MODEL_REQUEST_ERROR:
@@ -52,7 +52,7 @@ function nftModelReducer(state = initialState, action) {
     case POST_NFT_MODEL_REQUEST:
       return {
         ...state,
-        nft_model: payload,
+        nftModel: payload,
         loading: false
       };
     case POST_NFT_MODEL_REQUEST_ERROR:
