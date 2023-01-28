@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Sidebar from './components/layout/Sidebar';
 import Routes from './components/routing/Routes';
 import './App.css';
 
@@ -28,7 +27,6 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Sidebar />
           <Switch>
             <Route component={Routes} />
           </Switch>
