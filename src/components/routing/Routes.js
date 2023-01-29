@@ -16,6 +16,8 @@ import Order from "../order/Order";
 import NewOrder from "../order_new/NewOrder";
 import OrderCommission from "../order_commission/OrderCommission";
 import OrderComplete from "../order_complete/OrderComplete";
+import ModelConverter from '../model_converter/ModelConverter';
+import User from '../user/User';
 
 const Routes = () => {
   return (
@@ -29,6 +31,8 @@ const Routes = () => {
             <Route exact path="/register_model_converter" component={RegisterModelConverter} />
             <Route exact path="/login_user" component={LoginUser} />
             <Route exact path="/login_model_converter" component={LoginModelConverter} />
+            <Route exact path="/users/:id" component={User} />
+            <Route exact path="/model_converters/:id" component={ModelConverter} />
             <Route exact path="/nft_model/new" component={NewNftModel} />
             <Route exact path="/nft_models" component={NftModels} />
             <Route exact path="/nft_models/:id" component={NftModel} />

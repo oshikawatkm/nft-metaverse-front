@@ -37,7 +37,7 @@ class LoginUser extends Component {
     }
 
     await this.props.loginUserRequest(formData);
-    this.props.history.push('/users')
+    this.props.history.push('/users/1')
   }
 
   render() {

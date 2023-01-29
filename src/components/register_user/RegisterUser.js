@@ -39,7 +39,7 @@ class RegisterUser extends Component {
     }
 
     await this.props.postUserRequest(formData);
-    this.props.history.push('/users')
+    this.props.history.push('/users/1')
   }
 
   render() {

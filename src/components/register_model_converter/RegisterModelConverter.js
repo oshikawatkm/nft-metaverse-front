@@ -35,11 +35,11 @@ class RegisterModelConverter extends Component {
     const formData= {
       name: this.state.name,
       email: this.state.email,
-      password: this.state.password,
+      password: this.state.password
     }
 
     await this.props.postModelConverterRequest(formData);
-    this.props.history.push('/users')
+    this.props.history.push('/model_converters/1')
   }
 
   render() {
@@ -50,14 +50,11 @@ class RegisterModelConverter extends Component {
         <section className="content-header">
           <div className="container-fluid">
             <div className="row my-3">
-              <div className="col-sm-2"></div>
-              <div className="col-sm-4">
-                <h1>新規ユーザー登録</h1>
-              </div>
+              <div className="col-sm-6"></div>
               <div className="col-sm-5">
                 <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item"><Link to="/">ホーム</Link></li>
-                <li className="breadcrumb-item"><Link to="/users">ユーザー一覧</Link></li>                  <li className="breadcrumb-item active">ユーザー新規登録</li>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active">Sign Up As Model Converter</li>
                 </ol>
               </div>
             </div>
@@ -70,15 +67,12 @@ class RegisterModelConverter extends Component {
               <div className="col-2"></div>
               <div className="col-9">
                 <div className="card">
-                  <div className="card-header">
-                    <h3 className="card-title">新規ユーザー登録</h3>
-                  </div>
                   
                   <div className="card-body table-responsive p-0">
                     <div className="container">
                       <div className="row">
                         <div className="col-12">
-                          <h2 className="text-center my-5">新規ユーザー登録</h2>
+                          <h2 className="text-center my-5">Sign Up As Model Converte</h2>
                           <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                               <label for="nameInput">Name</label>
@@ -94,7 +88,7 @@ class RegisterModelConverter extends Component {
                               />
                             </div>
                             <div className="form-group">
-                              <label for="emailInput">メールアドレス</label>
+                              <label for="emailInput">Email</label>
                               <input
                                   placeholder="example@email.com"
                                   name="email"
@@ -108,7 +102,7 @@ class RegisterModelConverter extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                              <label for="passwordInput">パスワード</label>
+                              <label for="passwordInput">Password</label>
                               <input
                                 name="password"
                                 className="form-control"
@@ -120,7 +114,7 @@ class RegisterModelConverter extends Component {
                               />
                             </div>
                            
-                            <button type="submit" className="btn btn-primary btn-block my-5">登録</button>
+                            <button type="submit" className="btn btn-primary btn-block my-5">Sign Up</button>
                           </form>
                         </div>
                       </div>

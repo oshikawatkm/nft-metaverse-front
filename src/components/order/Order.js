@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getOrderRequest } from '../../actions/orders';
+import { getOrderRequest, commissionOrderRequest, completeOrderRequest } from '../../actions/orders';
 import { Link } from "react-router-dom";
 import Spinner from '../layout/Spinner';
 
@@ -9,6 +9,30 @@ const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
   useEffect(() => {
     getOrderRequest(match.params.id);
   }, [getOrderRequest, match.params.id])
+
+  const commitOrder = (id) => {
+    commissionOrderRequest(id);
+  }
+
+  const completeOrderRequest = (id) => {
+    completeOrderRequest(id);
+  }
+
+  const RenderButton = ( status ) => {
+    if (status == 1) {
+      return (
+        <button className="btn btn-warning mt-4" onClick={commitOrder(match.params.id)}>
+          Commit Order
+        </button>
+      )
+    } else if (status == 2) {
+      return (
+        <button className="btn btn-success mt-4" onClick={completeOrderRequest(match.params.id)}>
+          Complete Order
+        </button>
+      )
+    }
+  }
 
   return loading || order === null ? (
     <Spinner />
@@ -76,6 +100,10 @@ const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
                         <p className="h3">{order.updatedAt}</p>
                       </div>
 
+                      <div className="col-12 text-center">
+                        {RenderButton(order.status)}
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -92,6 +120,8 @@ const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
 
 Order.propTypes = {
   getOrderRequest: PropTypes.func.isRequired,
+  commissionOrderRequest: PropTypes.func.isRequired,
+  completeOrderRequest: PropTypes.func.isRequired,
   order: PropTypes.object.isRequired
 }
 
@@ -99,4 +129,4 @@ const mapStateToProps = (state) => ({
   order: state.order
 })
 
-export default connect(mapStateToProps, { getOrderRequest })(Order);
+export default connect(mapStateToProps, { getOrderRequest, commissionOrderRequest, completeOrderRequest })(Order);

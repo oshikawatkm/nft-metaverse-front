@@ -37,7 +37,7 @@ class LoginModelConverter extends Component {
     }
 
     await this.props.loginUserRequest(formData);
-    this.props.history.push('/orders')
+    this.props.history.push('/model_converters/1')
   }
 
   render() {

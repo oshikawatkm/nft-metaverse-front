@@ -9,8 +9,8 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  model_converters: [],
-  model_converter: null,
+  modelConverters: [],
+  modelConverter: null,
   loading: true,
   error: {}
 };
@@ -28,13 +28,13 @@ function model_converterReducer(state = initialState, action) {
     case GET_MODEL_CONVERTER_REQUEST:
       return {
         ...state,
-        model_converter: payload,
+        modelConverter: payload,
         loading: false
       };
     case GET_MODEL_CONVERTERS_REQUEST:
       return {
         ...state,
-        model_converters: payload,
+        modelConverters: payload,
         loading: false
       };
     case GET_MODEL_CONVERTER_REQUEST_ERROR:
@@ -52,7 +52,7 @@ function model_converterReducer(state = initialState, action) {
     case POST_MODEL_CONVERTER_REQUEST:
       return {
         ...state,
-        model_converter: payload,
+        modelConverter: payload,
         loading: false
       };
     case POST_MODEL_CONVERTER_REQUEST_ERROR:
