@@ -64,9 +64,9 @@ export const getOrderRequest = id => async dispatch => {
 }
 
 
-export const commissionOrderRequest = formData => async dispatch => {
+export const commissionOrderRequest = (id, formData) => async dispatch => {
   try {
-    const res = await api.put('/orders/:id/commission', formData);
+    const res = await api.put(`/orders/${id}/commission`, formData);
 
     dispatch({
       type: PUT_ORDER_COMMISION_REQUEST,
@@ -80,9 +80,10 @@ export const commissionOrderRequest = formData => async dispatch => {
   }
 }
 
-export const completeOrderRequest = formData => async dispatch => {
+export const completeOrderRequest = (id, formData) => async dispatch => {
   try {
-    const res = await api.put('/orders/:id/complete', formData);
+    const headers = { "Content-Type": "multipart/form-data" };
+    const res = await api.put(`/orders/${id}/complete`, formData, {headers});
 
     dispatch({
       type: PUT_ORDER_COMPLETE_REQUEST,

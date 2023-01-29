@@ -41,7 +41,7 @@ const User = ({ getUserRequest, user: { user, loading }, match })  => {
                 <div className="card-header">
                   <div class="card-tools ml-auto">
                     <Link to={'/order/new'}  className="btn btn-warning">New Order</Link>
-                    <Link to={'/nft_model/upload'}  className="btn btn-primary ml-3">Upload NFT Model</Link>
+                    <Link to={'/nft_model/new'}  className="btn btn-primary ml-3">Upload NFT Model</Link>
                   </div>
                 </div>
                 

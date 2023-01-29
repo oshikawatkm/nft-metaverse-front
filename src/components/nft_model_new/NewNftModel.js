@@ -14,6 +14,7 @@ class NewNftModel extends Component {
       copyright: '',
       format: '',
       description: '',
+      file: null,
       errors: {}
     }
 
@@ -37,11 +38,16 @@ class NewNftModel extends Component {
       name: this.state.name,
       copyright: this.state.copyright,
       format: this.state.format,
-      description: this.state.description
+      description: this.state.description,
+      file: this.state.file
     }
 
     await this.props.postNftModelRequest(formData);
-    this.props.history.push('/users')
+    this.props.history.push('/nft_models/1')
+  }
+
+  fileUpload = (e) => {
+    this.state.file = e.target.files[0];
   }
 
   render() {
@@ -94,7 +100,7 @@ class NewNftModel extends Component {
                             </div>
 
                             <div className="form-group">
-                              <label for="nameInput">Copyright</label>
+                              <label for="copyrightInput">Copyright</label>
                               <input
                                 placeholder="copyright"
                                 name="copyright"
@@ -108,7 +114,7 @@ class NewNftModel extends Component {
                             </div>
 
                             <div className="form-group">
-                              <label for="nameInput">Format</label>
+                              <label for="formatInput">Format</label>
                               <input
                                 placeholder=".format"
                                 name="format"
@@ -122,10 +128,10 @@ class NewNftModel extends Component {
                             </div>
 
                             <div className="form-group">
-                              <label for="nameInput">Description</label>
+                              <label for="descriptionInput">Description</label>
                               <input
                                 placeholder="description"
-                                name="nadescriptionme"
+                                name="description"
                                 className="form-control"
                                 id="descriptionInput"
                                 required={true}
@@ -134,7 +140,27 @@ class NewNftModel extends Component {
                                 error={errors.description}
                               />
                             </div>
-                           
+
+                            <p class="mt-4 mb-0">3D Model File</p>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                              </div>
+                              <div class="custom-file">
+                                <input 
+                                  type="file" 
+                                  class="custom-file-input" 
+                                  ref="upload"
+                                  id="inputGroupFile01" 
+                                  aria-describedby="inputGroupFileAddon01" 
+                                  required={true}
+                                  name="file"
+                                  value={this.state.file} 
+                                  onChange={this.fileUpload} 
+                                />
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                              </div>
+                            </div>
                            
                             <button type="submit" className="btn btn-primary btn-block my-5">Mint Model NFT</button>
                           </form>
