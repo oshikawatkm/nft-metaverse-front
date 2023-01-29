@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getOrderRequest } from '../../actions/orders';
+import { Link } from "react-router-dom";
 import Spinner from '../layout/Spinner';
 
 const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
@@ -23,6 +24,7 @@ const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item"><a href="#">Home</a></li>
+                  <li className="breadcrumb-item"><Link to="/orders">Order List</Link></li>
                   <li className="breadcrumb-item active">Order Details</li>
                 </ol>
               </div>
@@ -34,8 +36,7 @@ const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
       <section className="content">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-2"></div>
-            <div className="col-9">
+            <div className="col-12">
               <div className="card">
                 <div className="card-header">
                   <h3 className="card-title">Order Details</h3>

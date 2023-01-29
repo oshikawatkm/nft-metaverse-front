@@ -13,13 +13,12 @@ const Orders = ({ getOrdersRequest, order: {orders}  })  => {
   return (
     <Fragment>
       <section className="content-header">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row mb-2">
-            <div className="col-sm-2"></div>
-            <div className="col-sm-4">
-              <h1>VC一覧</h1>
+            <div className="col-sm-6">
+              <h1>Orders List</h1>
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item"><Link to="/">ホーム</Link></li>
                 <li className="breadcrumb-item active">Orders</li>
@@ -30,16 +29,14 @@ const Orders = ({ getOrdersRequest, order: {orders}  })  => {
       </section>
 
       <section className="content">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
-            <div className="col-2"></div>
-            <div className="col-10">
-              <Link to="/vc/new" className="btn btn-primary mb-3">
+            <div className="col-12">
+              <Link to="/order/new" className="btn btn-primary mb-3">
                 <i className="far fa-circle nav-icon"></i> Orders
               </Link>
             </div>
-            <div className="col-2"></div>
-            <div className="col-9">
+            <div className="col-12">
               <div className="card">
                 <div className="card-header">
                   <h3 className="card-title">Orders</h3>

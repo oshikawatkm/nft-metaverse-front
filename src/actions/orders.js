@@ -15,6 +15,7 @@ import {
 
 export const postOrderRequest = formData => async dispatch => {
   try {
+    console.log(formData)
     const res = await api.post('/orders', formData);
 
     dispatch({

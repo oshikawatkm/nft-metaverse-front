@@ -19,14 +19,14 @@ const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match }
       <section className="content-header">
         <div className="container-fluid">
           <div className="row my-3">
-            <div className="col-sm-2"></div>
-            <div className="col-sm-4">
-              <h1>VCスキーマ一覧</h1>
+            <div className="col-sm-6">
+              <h1>3D NFT Model Details</h1>
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item"><Link to="/">ホーム</Link></li>
-                <li className="breadcrumb-item active">VCスキーマ一覧</li>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><Link to="/nft_models"> 3D NFT Model List</Link></li>
+                <li className="breadcrumb-item active">3D NFT Model Details</li>
               </ol>
             </div>
           </div>
@@ -36,14 +36,12 @@ const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match }
       <section className="content">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-2"></div>
-            <div className="col-9">
+            <div className="col-12">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">VCスキーマ詳細</h3>
+                  <h3 className="card-title">3D NFT Model Details</h3>
                   <div class="card-tools ml-auto">
-
-                    <Link to={`/nft_models/${match.params.id}/vc_issue`}  className="btn btn-primary">VC発行</Link>
+                    <Link to={`/nft_models/${match.params.id}/vc_issue`}  className="btn btn-primary">New Order</Link>
                   </div>
                 </div>
                 
@@ -54,7 +52,22 @@ const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match }
                         <p className="mb-0">Name</p>
                         <p className="h3">{nftModel.name}</p>
                       </div>
+
+                      <div className="col-8">
+                        <p className="mb-0 pt-4">TokenId</p>
+                        <p className="h3">{nftModel.tokenId}</p>
+                      </div>
         
+                      <div className="col-8">
+                        <p className="mb-0 pt-4">Filename</p>
+                        <p className="h3">{nftModel.filename}</p>
+                      </div>
+
+                      <div className="col-8">
+                        <p className="mb-0 pt-4">File Format</p>
+                        <p className="h3">{nftModel.format}</p>
+                      </div>
+
                     </div>
                     <div className="row">
                     <div className="col-6">

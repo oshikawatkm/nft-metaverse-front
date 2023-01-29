@@ -10,8 +10,8 @@ class NewOrder extends Component {
   constructor() {
     super();
     this.state = {
-      tokenId: 0,
-      rewardWei: 0,
+      tokenId: 1,
+      rewardWei: 1000,
       format: '',
       errors: {}
     }
@@ -35,11 +35,11 @@ class NewOrder extends Component {
     const formData= {
       tokenId: this.state.tokenId,
       rewardWei: this.state.rewardWei,
-      password: this.state.password,
+      format: this.state.format,
     }
 
-    await this.props.postUserRequest(formData);
-    this.props.history.push('/users')
+    await this.props.postOrderRequest(formData);
+    // this.props.history.push('/orders')
   }
 
   render() {
@@ -48,16 +48,13 @@ class NewOrder extends Component {
     return (
       <Fragment>
         <section className="content-header">
-          <div className="container-fluid">
+          <div className="container">
             <div className="row my-3">
-              <div className="col-sm-2"></div>
-              <div className="col-sm-4">
-                <h1>新規ユーザー登録</h1>
-              </div>
-              <div className="col-sm-5">
+              <div className="col-sm-6"></div>
+              <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item"><Link to="/">ホーム</Link></li>
-                <li className="breadcrumb-item"><Link to="/users">ユーザー一覧</Link></li>                  <li className="breadcrumb-item active">ユーザー新規登録</li>
+                <li className="breadcrumb-item"><Link to="/orders">Order List</Link></li>                  <li className="breadcrumb-item active">New Order</li>
                 </ol>
               </div>
             </div>
@@ -65,20 +62,16 @@ class NewOrder extends Component {
         </section>
 
         <section className="content">
-          <div className="container-fluid">
+          <div className="container">
             <div className="row">
-              <div className="col-2"></div>
-              <div className="col-9">
+              <div className="col-12">
                 <div className="card">
-                  <div className="card-header">
-                    <h3 className="card-title">新規ユーザー登録</h3>
-                  </div>
-                  
+
                   <div className="card-body table-responsive p-0">
                     <div className="container">
                       <div className="row">
                         <div className="col-12">
-                          <h2 className="text-center my-5">新規ユーザー登録</h2>
+                          <h2 className="text-center my-5">New Order</h2>
                           <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                               <label for="tokenIdInput">TokenId</label>

@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import timestampToTime from '../../utils/timeFormater'
 
 const OrderItem = ({
-  order: { tokenId, reward_wei, format, createdAt, updatedAt },
+  order: { id, tokenId, rewardWei, format, createdAt, updatedAt },
   index
 }) => {
   return (
     <tr>
       <td>{index}</td>
-      <td>{reward_wei}</td>
+      <td>{rewardWei}</td>
       <td>Mike Doe</td>
       <td>{format}</td>
       <td>{timestampToTime(createdAt)}</td>
       <td>{timestampToTime(updatedAt)}</td>
-      <td><button type="button" className="btn btn-primary float-right"><i className="fas fa-plus"></i> Detail</button></td>
+      <td><Link to={"/orders/"+id} className="btn btn-primary"><i className="fas fa-plus"></i> 詳細</Link></td>
     </tr>
   );
 };

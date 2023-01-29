@@ -15,7 +15,7 @@ const NftModelItem = ({
       <td>{format}</td>
       <td>{timestampToTime(createdAt)}</td>
       <td>{timestampToTime(updatedAt)}</td>
-      <td><Link to={"/nft_model/"+id} className="btn btn-primary"> 詳細</Link></td>
+      <td><Link to={"/nft_models/"+id} className="btn btn-primary"> 詳細</Link></td>
     </tr>
   );
 };
