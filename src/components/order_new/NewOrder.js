@@ -39,7 +39,7 @@ class NewOrder extends Component {
     }
 
     await this.props.postOrderRequest(formData);
-    // this.props.history.push('/orders')
+    this.props.history.push('/orders')
   }
 
   render() {

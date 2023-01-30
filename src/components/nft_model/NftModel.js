@@ -40,43 +40,40 @@ const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match }
               <div className="card">
                 <div className="card-header">
                   <h3 className="card-title">3D NFT Model Details</h3>
-                  <div class="card-tools ml-auto">
-                    <Link to={`/nft_models/${match.params.id}/vc_issue`}  className="btn btn-primary">New Order</Link>
+                  <div className="card-tools ml-auto">
+                    <Link to={`/order/new`}  className="btn btn-primary">New Order</Link>
                   </div>
                 </div>
                 
                 <div className="card-body table-responsive p-5">
                   <div className="container">
                     <div className="row">
-                      <div className="col-8">
+                      <div className="col-12">
                         <p className="mb-0">Name</p>
                         <p className="h3">{nftModel.name}</p>
                       </div>
 
-                      <div className="col-8">
+                      <div className="col-12">
                         <p className="mb-0 pt-4">TokenId</p>
                         <p className="h3">{nftModel.tokenId}</p>
                       </div>
         
-                      <div className="col-8">
+                      <div className="col-12">
                         <p className="mb-0 pt-4">Filename</p>
-                        <p className="h3">{nftModel.filename}</p>
+                        <p className="h5">{nftModel.filename}</p>
                       </div>
 
-                      <div className="col-8">
+                      <div className="col-12">
                         <p className="mb-0 pt-4">File Format</p>
                         <p className="h3">{nftModel.format}</p>
                       </div>
 
                     </div>
-                    <div className="row">
-                    <div className="col-6">
-                        <p className="mt-3">更新日: {timestampToTime(nftModel.updatedAt)}</p>
-                      </div>
-                      <div className="col-6">
-                        <p className="mt-3">作成日: {timestampToTime(nftModel.createdAt)}</p>
-                      </div>
+                    <div className="col-12">
+                      <p className="mt-3">CreatedAt: {timestampToTime(nftModel.createdAt)}</p>
+                      <p className="mt-3">UpdatedAt: {timestampToTime(nftModel.updatedAt)}</p>
                     </div>
+
                     {/* {vcSchema.vcSchemaProperties.map((schema) => 
                       <>
                         <hr className="my-2" />

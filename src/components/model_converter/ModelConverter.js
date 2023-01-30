@@ -40,7 +40,7 @@ const ModelConverter = ({ getModelConverterRequest, modelConverter: { modelConve
               <div className="card">
                 <div className="card-header">
                   <h3 className="card-title">3D NFT Model Details</h3>
-                  <div class="card-tools ml-auto">
+                  <div className="card-tools ml-auto">
                     <Link to={`/nft_models/${match.params.id}/vc_issue`}  className="btn btn-primary">New Order</Link>
                   </div>
                 </div>

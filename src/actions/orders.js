@@ -64,9 +64,9 @@ export const getOrderRequest = id => async dispatch => {
 }
 
 
-export const commissionOrderRequest = (id, formData) => async dispatch => {
+export const commissionOrderRequest = (id, modelConverterId) => async dispatch => {
   try {
-    const res = await api.put(`/orders/${id}/commission`, formData);
+    const res = await api.put(`/orders/${id}/commission`, {modelConverterId});
 
     dispatch({
       type: PUT_ORDER_COMMISION_REQUEST,

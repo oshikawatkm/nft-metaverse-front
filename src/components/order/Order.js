@@ -4,40 +4,50 @@ import { connect } from 'react-redux';
 import { getOrderRequest, commissionOrderRequest, completeOrderRequest } from '../../actions/orders';
 import { Link } from "react-router-dom";
 import Spinner from '../layout/Spinner';
+import timestampToTime from '../../utils/timeFormater';
+import CompleteForm from './CompleteForm'
 
-const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
+const Order = ({ getOrderRequest, commissionOrderRequest, order: { order, loading }, match }) => {
   useEffect(() => {
     getOrderRequest(match.params.id);
   }, [getOrderRequest, match.params.id])
 
   const commitOrder = (id) => {
-    commissionOrderRequest(id);
-  }
-
-  const completeOrderRequest = (id) => {
-    completeOrderRequest(id);
+    commissionOrderRequest(id, 1);
+    window.location.reload()
   }
 
   const RenderButton = ( status ) => {
     if (status == 1) {
       return (
-        <button className="btn btn-warning mt-4" onClick={commitOrder(match.params.id)}>
+        <button className="btn btn-warning mt-4" onClick={() => commitOrder(match.params.id)}>
           Commit Order
         </button>
       )
     } else if (status == 2) {
       return (
-        <button className="btn btn-success mt-4" onClick={completeOrderRequest(match.params.id)}>
-          Complete Order
-        </button>
+        <CompleteForm match={match}  />
       )
+    }
+  }
+
+  const StatusText = (status) => {
+    switch (status) {
+      case 1:
+        return (<p className="h3">Uncommissioned</p>)
+      case 2:
+        return (<p className="h3">Commissioned</p>)
+      case 3:
+        return (<p className="h3">Completed</p>)
+      default:
+        return;
     }
   }
 
   return loading || order === null ? (
     <Spinner />
   ) : (
-    <Fragment>
+    <Fragment> 
       <section className="content-header">
         <div className="content-wrapper">
           <div className="container-fluid">
@@ -87,17 +97,12 @@ const Order = ({ getOrderRequest, order: { order, loading }, match })  => {
 
                       <div className="col-12">
                         <p className="mb-0 pt-4">Status</p>
-                        <p className="h3">{order.status}</p>
+                        {StatusText(order.status)}
                       </div>
 
                       <div className="col-12">
-                        <p className="mb-0 pt-4">Created At</p>
-                        <p className="h3">{order.createdAt}</p>
-                      </div>
-
-                      <div className="col-12">
-                        <p className="mb-0 pt-4">UpdatedAt</p>
-                        <p className="h3">{order.updatedAt}</p>
+                        <p className="mt-3">CreatedAt: {timestampToTime(order.createdAt)}</p>
+                        <p className="mt-3">UpdatedAt: {timestampToTime(order.updatedAt)}</p>
                       </div>
 
                       <div className="col-12 text-center">

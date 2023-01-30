@@ -39,7 +39,7 @@ const User = ({ getUserRequest, user: { user, loading }, match })  => {
             <div className="col-12">
               <div className="card">
                 <div className="card-header">
-                  <div class="card-tools ml-auto">
+                  <div className="card-tools ml-auto">
                     <Link to={'/order/new'}  className="btn btn-warning">New Order</Link>
                     <Link to={'/nft_model/new'}  className="btn btn-primary ml-3">Upload NFT Model</Link>
                   </div>
@@ -62,11 +62,11 @@ const User = ({ getUserRequest, user: { user, loading }, match })  => {
                         <p className="mb-0 pt-4">DID</p>
                         <p className="h3">{user.did}</p>
                       </div>
-
+{/* 
                       <div className="col-12">
                         <p className="mb-0 pt-4">Public Key</p>
                         <p className="h3">{user.publicKey}</p>
-                      </div>
+                      </div> */}
 
                       <div className="col-12">
                         <p className="mb-0 pt-4">Address</p>
@@ -78,15 +78,13 @@ const User = ({ getUserRequest, user: { user, loading }, match })  => {
                         <p className="h3">{user.balance} wei</p>
                       </div>
 
-                    </div>
-                    <div className="row">
-                    <div className="col-6">
-                        <p className="mt-3">更新日: {timestampToTime(user.updatedAt)}</p>
+                      <div className="col-12">
+                        <p className="mt-3">CreatedAt: {timestampToTime(user.createdAt)}</p>
+                        <p className="mt-3">UpdatedAt: {timestampToTime(user.updatedAt)}</p>
                       </div>
-                      <div className="col-6">
-                        <p className="mt-3">作成日: {timestampToTime(user.createdAt)}</p>
-                      </div>
+
                     </div>
+                    
                     {/* {vcSchema.vcSchemaProperties.map((schema) => 
                       <>
                         <hr className="my-2" />

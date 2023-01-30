@@ -48,14 +48,11 @@ class LoginUser extends Component {
         <section className="content-header">
           <div className="container-fluid">
             <div className="row my-3">
-              <div className="col-sm-2"></div>
-              <div className="col-sm-4">
-                <h1>新規ユーザー登録</h1>
-              </div>
+              <div className="col-sm-6"></div>
               <div className="col-sm-5">
                 <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item"><Link to="/">ホーム</Link></li>
-                <li className="breadcrumb-item"><Link to="/users">ユーザー一覧</Link></li>                  <li className="breadcrumb-item active">ユーザー新規登録</li>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active">Sign In As User</li>
                 </ol>
               </div>
             </div>
@@ -68,14 +65,13 @@ class LoginUser extends Component {
               <div className="col-2"></div>
               <div className="col-9">
                 <div className="card">
-                  <div className="card-header">
-                    <h3 className="card-title">Sign In As User</h3>
-                  </div>
-                  
+
                   <div className="card-body table-responsive p-0">
                     <div className="container">
                       <div className="row">
+
                         <div className="col-12">
+                          <h2 className="text-center my-5">Sign In As User</h2>
                           <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                               <label for="emailInput">Email</label>

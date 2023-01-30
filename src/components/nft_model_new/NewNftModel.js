@@ -141,15 +141,15 @@ class NewNftModel extends Component {
                               />
                             </div>
 
-                            <p class="mt-4 mb-0">3D Model File</p>
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                            <p className="mt-4 mb-0">3D Model File</p>
+                            <div className="input-group mb-3">
+                              <div className="input-group-prepend">
+                                <span className="input-group-text" id="inputGroupFileAddon01">Upload</span>
                               </div>
-                              <div class="custom-file">
+                              <div className="custom-file">
                                 <input 
                                   type="file" 
-                                  class="custom-file-input" 
+                                  className="custom-file-input" 
                                   ref="upload"
                                   id="inputGroupFile01" 
                                   aria-describedby="inputGroupFileAddon01" 
@@ -158,7 +158,7 @@ class NewNftModel extends Component {
                                   value={this.state.file} 
                                   onChange={this.fileUpload} 
                                 />
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                <label className="custom-file-label" for="inputGroupFile01">Choose file</label>
                               </div>
                             </div>
                            
