@@ -5,6 +5,7 @@ import { getNftModelRequest } from '../../actions/nft-models';
 import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import timestampToTime from '../../utils/timeFormater'
+import EventItem from './EventItem';
 
 
 const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match })  => {
@@ -74,21 +75,23 @@ const NftModel = ({ getNftModelRequest, nftModel: { nftModel, loading }, match }
                       <p className="mt-3">UpdatedAt: {timestampToTime(nftModel.updatedAt)}</p>
                     </div>
 
-                    {/* {vcSchema.vcSchemaProperties.map((schema) => 
-                      <>
-                        <hr className="my-2" />
-                        <div className="row">
-                          <div className="col-6">
-                            <p className="mb-0 pt-2">項目名</p>
-                            <p className="h4">{schema.propName}</p>
-                          </div>
-                          <div className="col-6">
-                            <p className="mb-0 pt-2">項目値型</p>
-                            <p className="h4">{nftModel.propType}</p>
-                          </div>
-                        </div>
-                      </>
-                    )} */}
+                    <h3 className="mt-5">Convert History</h3>
+                    <div className="card-body table-responsive p-0">
+                      <table className="table table-hover text-nowrap">
+                        <thead>
+                          <tr>
+                            <th>Old URI</th>
+                            <th></th>
+                            <th>New URI</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {nftModel.events.map((event) => (
+                            <EventItem key={event.tokenId} event={event}/>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
 
