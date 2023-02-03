@@ -3,22 +3,26 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Routes from './components/routing/Routes';
 import './App.css';
+import { LOGOUT } from './actions/auth';
+
 
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './utils/auth';
+import setAuthToken from './utils/setAuthToken';
 
 const App = () => {
   useEffect(() => {
     // check for token in LS
     if (localStorage.token) {
-      // setAuthToken(localStorage.token);
+      setAuthToken(localStorage.token);
     }
-    // store.dispatch(loadUser());
+    store.dispatch(loadUser());
 
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
-      // if (!localStorage.token) store.dispatch({ type: LOGOUT });
+      if (!localStorage.token) store.dispatch({ type: LOGOUT });
     });
   }, []);
 
