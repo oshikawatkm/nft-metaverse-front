@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Routes from './components/routing/Routes';
 import './App.css';
-import { LOGOUT } from './actions/auth';
+import { USER_LOGOUT } from './actions/types';
 
 
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
-import { loadUser } from './utils/auth';
+import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
 
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
-      if (!localStorage.token) store.dispatch({ type: LOGOUT });
+      if (!localStorage.token) store.dispatch({ type: USER_LOGOUT });
     });
   }, []);
 

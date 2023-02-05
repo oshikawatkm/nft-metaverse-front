@@ -18,6 +18,7 @@ import OrderCommission from "../order_commission/OrderCommission";
 import OrderComplete from "../order_complete/OrderComplete";
 import ModelConverter from '../model_converter/ModelConverter';
 import User from '../user/User';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
   return (
@@ -31,16 +32,43 @@ const Routes = () => {
             <Route exact path="/register_model_converter" component={RegisterModelConverter} />
             <Route exact path="/login_user" component={LoginUser} />
             <Route exact path="/login_model_converter" component={LoginModelConverter} />
-            <Route exact path="/users/:id" component={User} />
+            <Route 
+              path="/users/:id" 
+              element={<PrivateRoute component={User} />} 
+            />
             <Route exact path="/model_converters/:id" component={ModelConverter} />
-            <Route exact path="/nft_model/new" component={NewNftModel} />
-            <Route exact path="/nft_models" component={NftModels} />
-            <Route exact path="/nft_models/:id" component={NftModel} />
-            <Route exact path="/orders" component={Orders} />
-            <Route exact path="/orders/:id" component={Order} />
-            <Route exact path="/order/new" component={NewOrder} />
-            <Route exact path="/orders/:id/commission" component={OrderCommission} />
-            <Route exact path="/orders/:id/complete" component={OrderComplete} />
+            <Route 
+              path="/nft_model/new" 
+              element={<PrivateRoute component={NewNftModel} />} 
+             />
+            <Route 
+              path="/nft_models" 
+              element={<PrivateRoute component={NftModels} />} 
+            />
+            <Route 
+              path="/nft_models/:id" 
+              element={<PrivateRoute component={NftModel} />}
+            />
+            <Route 
+              path="/orders" 
+              element={<PrivateRoute component={Orders} />}
+            />
+            <Route
+              path="/orders/:id" 
+              element={<PrivateRoute component={Order} />}
+            />
+            <Route
+              path="/order/new" 
+              element={<PrivateRoute component={NewOrder} />}
+            />
+            <Route 
+              path="/orders/:id/commission" 
+              element={<PrivateRoute component={OrderCommission} />}
+            />
+            <Route 
+              path="/orders/:id/complete" 
+              element={<PrivateRoute component={OrderComplete} />}
+            />
             <Route component={NotFound} />
           </Switch>
         </div>
